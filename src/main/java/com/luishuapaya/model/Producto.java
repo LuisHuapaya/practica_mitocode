@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 
 // JPQL
 // FROM producto p(nombre de la entidad) WHERE p.idPaciente = 1 
@@ -17,9 +18,11 @@ public class Producto {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idProducto;
 
+    @Size(min = 3, message = "El nombre del producto debe tener mínimo 3 caracteres")
     @Column(name = "nombre", nullable = false, length = 70)
     private String nombre;
 
+    @Size(min = 3, message = "El nombre de la marca debe tener mínimo 3 caracteres")
     @Column(name = "marca", nullable = false, length = 70)
     private String marca;
 

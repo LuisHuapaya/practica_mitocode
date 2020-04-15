@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "detalle_venta")
 public class DetalleVenta {
@@ -18,6 +20,8 @@ public class DetalleVenta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idDetalleVenta;
 
+    @JsonIgnore // haccer que no sea obligatorio mandar este atributo en el JSON de req
+   // @Transient  // para que este atributo no represente una columna en bd
     @ManyToOne
     @JoinColumn(name = "id_venta", nullable = false, foreignKey = @ForeignKey(name="fk_detalleventa_venta"))
     private Venta venta;
