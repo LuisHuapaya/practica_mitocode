@@ -65,7 +65,7 @@ public class ProductoController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
         Producto p = service.listarPorId(id);
-        if(p.getIdProducto() == null) throw new ModeloNotFoundException("Producto no encontrado: " + id);
+        if(p.getIdProducto() == null) throw new ModeloNotFoundException("Producto no existe: " + id);
         service.eliminar(id);
         return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
     }

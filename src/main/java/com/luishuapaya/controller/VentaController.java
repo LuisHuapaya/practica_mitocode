@@ -39,13 +39,6 @@ public class VentaController{
         if(p.getIdVenta() == null) throw new ModeloNotFoundException("Venta no encontrada: " + id);
         return new ResponseEntity<Venta>(p, HttpStatus.OK);
     }
-    /*
-    @PostMapping
-    public ResponseEntity<Persona> registrar(@Valid @RequestBody Persona persona){
-        Persona p = service.registrar(persona);
-        return new ResponseEntity<Persona>(p,HttpStatus.CREATED);
-    }
-    */
 
     @PostMapping
     public ResponseEntity<Object> registrar(@Valid @RequestBody Venta venta){

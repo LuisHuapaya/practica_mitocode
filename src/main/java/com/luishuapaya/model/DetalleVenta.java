@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -30,6 +31,7 @@ public class DetalleVenta {
     @JoinColumn(name = "id_producto", nullable = false, foreignKey = @ForeignKey(name="fk_detalleventa_producto"))
     private Producto producto;
 
+    @Min(value = 1, message = "La cantidad debe ser mayor o igual a 1")
     @Column(name = "cantidad")
     private Integer cantidad;
 

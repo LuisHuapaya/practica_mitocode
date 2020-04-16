@@ -65,7 +65,7 @@ public class PersonaController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
         Persona p = service.listarPorId(id);
-        if(p.getIdPersona() == null) throw new ModeloNotFoundException("Persona no encontrada: " + id);
+        if(p.getIdPersona() == null) throw new ModeloNotFoundException("Persona no existe: " + id);
         service.eliminar(id);
         return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
     }

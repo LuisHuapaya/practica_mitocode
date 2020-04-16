@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
 
 // JAVA PERSISTENCE QUERY LANGUAGE, notacion de objetos
 @Entity
@@ -32,6 +33,7 @@ public class Venta {
     @JoinColumn(name = "id_persona", nullable = false, foreignKey = @ForeignKey(name = "fk_venta_persona"))
     private Persona persona;
 
+    @Min(value = 1, message = "El importe debe ser mayo a 0")
     @Column(name = "importe")
     private Double importe;
 
